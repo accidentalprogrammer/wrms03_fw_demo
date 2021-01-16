@@ -1,0 +1,26 @@
+{
+	"query_params": [
+		{
+			"function_id": 3,
+			"start_register": 0,
+			"register_count": 4
+		}
+	],
+	"data": [
+		{
+			"function_id": 3,
+			"start_register": 0,
+			"params": [
+				{
+					"name":"WSNSR",
+					"register_size":16,
+					"param_size":16,
+					"type":"Integer",
+					"sign": "S",
+					"byte_offset":6,
+					"formula":"$this*0.01"
+				}
+			]
+		}
+	]
+}

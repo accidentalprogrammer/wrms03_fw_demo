@@ -1,0 +1,59 @@
+{
+	"query_params": [
+		{
+			"function_id": 3,
+			"start_register": 0,
+			"register_count": 2
+		}
+	],
+	"data": [
+		{
+			"function_id": 3,
+			"start_register": 0,
+			"params": [
+				{
+					"name":"WSNSR",
+					"register_size":16,
+					"param_size":16,
+					"type":"Integer",
+					"byte_offset":0,
+					"formula":"(($this*430)/32768)*(2.3992+(($this*430)/32768)*(0.00063962+0.000001024*(($this*430)/32768)))-247.29"
+				},
+				{
+					"name":"ANLG1",
+					"register_size":16,
+					"param_size":16,
+					"type":"Integer",
+					"byte_offset":2,
+					"formula":"(($this*5)/1024)*600"
+				}
+			]
+		}
+	],
+	"default": [
+		{
+			"name":"TEMP",
+			"value": 0
+		},
+		{
+			"name":"HUMI",
+			"value": 0
+		},
+		{
+			"name":"RELAY",
+			"value": 0
+		},
+		{
+			"name":"RAIN",
+			"value": 0
+		},
+		{
+			"name":"WINDS",
+			"value": 0
+		},
+		{
+			"name":"WINDD",
+			"value": 0
+		}
+	]
+}

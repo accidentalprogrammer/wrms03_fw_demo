@@ -1,0 +1,25 @@
+{
+	"query_params": [
+		{
+			"function_id": 3,
+			"start_register": 0,
+			"register_count": 3
+		}
+	],
+	"data": [
+		{
+			"function_id": 3,
+			"start_register": 0,
+			"params": [
+				{
+					"name":"ANLG1",
+					"register_size":16,
+					"param_size":16,
+					"type":"Integer",
+					"byte_offset":4,
+					"formula":"$this*1"
+				}
+			]
+		}
+	]
+}

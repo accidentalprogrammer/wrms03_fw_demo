@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" >
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+        </script>
+        <style>
+
+         body {
+             background-color: #36393e;
+             color: #bfbfbf;
+         }
+         .modal-style {
+             background-color: #36393e;
+             color: #bfbfbf;
+         }
+         .input-box {
+             background-color: #2f3136;
+             border-radius: 5px;
+             border: none;
+             color: #e9f2e9;
+             box-shadow: none;
+             width: 100%;
+         }
+         .btn-dark {
+             background: #2f3136;
+             width: 25%;
+             border-radius: 5px;
+             color: #F04747;
+         }
+         .btn-dark-open-modal {
+             background: #2f3136;
+             width: 100%;
+             border-radius: 5px;
+             color: #F04747;
+         }
+         .margin-md {
+             margin-bottom: 10px;
+             margin-top: 10px;
+         }
+         .navbar {
+             background-color: #2f3136;
+         }
+         .drop-down {
+            background-color: #2f3136;
+            border-radius: 5px;
+            border: none;
+            color: #e9f2e9;
+            box-shadow: none;
+            width: 30%;
+         }
+        </style>
+        <script type="text/javascript">
+
+
+         var deviceList = [
+             {
+	               "device_type":"INVERTER_DELTA_RPIM3",
+	               "connection_type":"RTU",
+                 "device_id":"DLT001",
+                 "device_category":"inverter",
+	               "connection_params": {
+		                 "slave_id":20,
+		                 "baud_rate":9600,
+		                 "parity":"none",
+		                 "stop_bits":1,
+		                 "byte_size":8
+	               }
+             },
+             {
+	               "device_type":"INVERTER_DELTA_RPIM3",
+	               "connection_type":"RTU",
+                 "device_id":"DLT002",
+                 "device_category":"inverter",
+	               "connection_params": {
+		                 "slave_id":21,
+		                 "baud_rate":9600,
+		                 "parity":"none",
+		                 "stop_bits":1,
+		                 "byte_size":8
+	               }
+             }
+         ];
+         function getDeviceTypes() {
+             var http = new XMLHttpRequest();
+             var url = '/getDeviceTypes';
+             http.open('GET', url, true);
+
+             //Send the proper header information along with the request
+             http.setRequestHeader('Content-type', 'application/json');
+             http.setRequestHeader('Access-Control-Allow-Origin', '*');
+
+             http.onreadystatechange = function() {//Call a function when the state changes.
+                 if(http.readyState == 4 && http.status == 200) {
+                     var devTypes = JSON.parse(http.responseText);
+                     console.log(devTypes);
+                     populateDeviceType(devTypes);
+                     populateDeviceList();
+                 }
+             }
+             http.send();
+         }
+         function getDeviceList() {
+             var http = new XMLHttpRequest();
+             var url = '/getDeviceList';
+             http.open('GET', url, true);
+
+             //Send the proper header information along with the request
+             http.setRequestHeader('Content-type', 'application/json');
+             http.setRequestHeader('Access-Control-Allow-Origin', '*');
+
+             http.onreadystatechange = function() {//Call a function when the state changes.
+                 if(http.readyState == 4 && http.status == 200) {
+                     deviceList = JSON.parse(http.responseText);
+                     getDeviceTypes();
+                 }
+             }
+             http.send();
+         }
+         function populateDeviceType( devTypes ) {
+             devTypesTag = document.getElementById('device_type');
+             for( var i = 0; i < devTypes.length; i++ ) {
+                 devTypesTag.innerHTML += '<option value="'+ devTypes[i] +'">'+devTypes[i]+'</option>';
+             }
+         }
+
+         function deleteDevice( idx ) {
+             deviceList.splice( idx, 1 );
+             var http = new XMLHttpRequest();
+             var url = '/updateDeviceList';
+             http.open('POST', url, true);
+
+             //Send the proper header information along with the request
+             http.setRequestHeader('Content-type', 'application/json');
+             http.setRequestHeader('Access-Control-Allow-Origin', '*');
+
+             http.onreadystatechange = function() {//Call a function when the state changes.
+                 if(http.readyState == 4 && http.status == 200) {
+                     location.reload(); 
+                 }
+             }
+             console.log(deviceList);
+             http.send(JSON.stringify(deviceList));
+         }
+
+         function createDeviceEntry( device, i ) {
+             devList = '';
+             devList += '<div class="row">';
+             devList += '<div class="col-md-10">';
+             devList += '<label>' + device.device_id + '</label></div>';
+             devList += '<div class="col-md-1">';
+             devList += '<button  type="button" class="btn btn-dark-open-modal" data-toggle="modal" data-target="#myModal" onclick="fillModal('+ i +')">View</button></div>';
+             devList += '<div class="col-md-1">';
+             devList += '<button  type="button" class="btn btn-dark-open-modal" onclick="deleteDevice('+ i +')">Delete</button></div>';
+             devList += '</div>';
+             devList += '</div>';
+
+             return devList;
+         }
+
+         function populateDeviceList() {
+             var devListDiv = document.getElementById('container_main');
+             for(var i = 0; i<deviceList.length; i++) {
+                 devListDiv.innerHTML += createDeviceEntry( deviceList[i], i );
+             }
+         }
+
+         function createContent() {
+             getDeviceList();
+         }
+         function fillModal( index ) {
+             var modalHead = document.getElementById('modal_head');
+             modalHead.innerHTML = deviceList[index].device_id;
+             device = deviceList[index];
+             var modalBody = document.getElementById('modal_body');
+             var modalContent = '';
+             modalContent += '<table>';
+             modalContent += '<tr><td>Device ID:</td><td>'+ device.device_id +'</td></tr>';
+             modalContent += '<tr><td>Connection Type:</td><td>'+ device.connection_type +'</td></tr>';
+             modalContent += '<tr><td>Device Type:</td><td>'+ device.device_type +'</td></tr>';
+             modalContent += '<tr><td>Device Category:</td><td>'+ device.device_category +'</td></tr>';
+             modalContent += '<tr><td>Slave ID:</td><td>'+ device.connection_param.slave_id +'</td></tr>';
+             modalContent += '<tr><td>Baud Rate:</td><td>'+ device.connection_param.baud_rate +'</td></tr>';
+             modalContent += '<tr><td>Parity:</td><td>'+ device.connection_param.parity +'</td></tr>';
+             modalContent += '<tr><td>Stop Bits:</td><td>'+ device.connection_param.stop_bits +'</td></tr>';
+             modalContent += '<tr><td>Byte Size:</td><td>'+ device.connection_param.byte_size +'</td></tr>';
+             modalContent += '</table>';
+             modalBody.innerHTML = modalContent;
+
+         }
+
+         function addNewDevice() {
+             var device_type = document.getElementById('device_type').value;
+             var connection_type = document.getElementById('connection_type').value;
+             var device_category = document.getElementById('device_category').value;
+             var slave_id = document.getElementById('slave_id').value;
+             var baud_rate = document.getElementById('baud_rate').value;
+             var parity = document.getElementById('parity').value;
+             var stop_bits = document.getElementById('stop_bits').value;
+             var byte_size = document.getElementById('byte_size').value;
+
+             var connection_param = { 'slave_id': slave_id, 'baud_rate':baud_rate, 'parity':parity, 'stop_bits':stop_bits, 'byte_size':byte_size }
+             var newDevice = { 'device_type': device_type, 'device_id': document.getElementById('deviceid').value, 'connection_type': connection_type, 'device_category': device_category, 'connection_param': connection_param };
+             console.log(newDevice);
+             deviceList.push(newDevice);
+
+             var http = new XMLHttpRequest();
+             var url = '/updateDeviceList';
+             http.open('POST', url, true);
+
+             //Send the proper header information along with the request
+             http.setRequestHeader('Content-type', 'application/json');
+             http.setRequestHeader('Access-Control-Allow-Origin', '*');
+
+             http.onreadystatechange = function() {//Call a function when the state changes.
+                 if(http.readyState == 4 && http.status == 200) {
+                     location.reload(); 
+                 }
+             }
+             console.log(deviceList);
+             http.send(JSON.stringify(deviceList));
+         }
+        </script>
+    </head>
+
+    <body onload="createContent()">
+        <div class="container-fluid" id="container_main">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+                <a class="navbar-brand" href="#">Logo</a>
+            </nav>
+            <div class="row margin-md">
+                <div class="col-md-12">
+                    <h5>Configured Modbus Devices</h5>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Device Type</label>
+                </div>
+                <div class="col-md-10">
+                    <select name="device_type" id="device_type" class="drop-down">
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Connection Type</label>
+                </div>
+                <div class="col-md-10">
+                    <select name="connection_type" id="connection_type" class="drop-down">
+                        <option value="RTU">RTU</option>
+                        <option value="TCP">TCP</option>
+                        <option value="RTUoverTCP">RTU over TCP</option>
+                        <option value="RTUoverLORA">RTU over LORA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Device Category</label>
+                </div>
+                <div class="col-md-10">
+                    <select name="device_category" id="device_category" class="drop-down">
+                        <option value="inverter">Inverter</option>
+                        <option value="wst">Weather Station</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Device ID</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="input-box" name="deviceid" id="deviceid">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Slave ID</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="input-box" name="slave_id" id="slave_id">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Baud Rate</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="input-box" name="baud_rate" id="baud_rate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Parity</label>
+                </div>
+                <div class="col-md-10">
+                    <select name="parity" id="parity" class="drop-down">
+                        <option value="none">None</option>
+                        <option value="even">Even</option>
+                        <option value="odd">Odd</option>
+                        <option value="mark">Mark</option>
+                        <option value="space">Space</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Stop Bits</label>
+                </div>
+                <div class="col-md-10">
+                    <select name="stop_bits" id="stop_bits" class="drop-down">
+                        <option value="1">1</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Byte Size</label>
+                </div>
+                <div class="col-md-10">
+                    <select name="byte_size" id="byte_size" class="drop-down">
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-dark" onclick="addNewDevice()">Add New Device</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Configured Modbus Devices</h5>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header modal-style">
+                        <h4 class="modal-title"><span id="modal_head"></span> </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body modal-style">
+                        <div id="modal_body"></div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer modal-style">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

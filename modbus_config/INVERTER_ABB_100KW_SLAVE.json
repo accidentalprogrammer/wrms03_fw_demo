@@ -1,0 +1,421 @@
+{
+  "query_params": [
+    {
+      "function_id": 4,
+      "start_register": 0,
+      "register_count": 8
+    },
+    {
+      "function_id": 4,
+      "start_register": 1,
+      "register_count": 11
+    },
+    {
+      "function_id": 4,
+      "start_register": 2,
+      "register_count": 11
+    },
+    {
+      "function_id": 4,
+      "start_register": 3,
+      "register_count": 11
+    },
+    {
+      "function_id": 4,
+      "start_register": 4,
+      "register_count": 7
+    }
+  ],
+  "data": [
+    {
+      "function_id": 4,
+      "start_register": 0,
+      "params": [
+        {
+          "name": "1WSNSR",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "TEMP",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 2,
+          "formula": "$this*1"
+        },
+        {
+          "name": "HUMI",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 4,
+          "formula": "$this*1"
+        },
+        {
+          "name": "RELAY",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 6,
+          "formula": "$this*1"
+        },
+        {
+          "name": "RAIN",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 8,
+          "formula": "$this*1"
+        },
+        {
+          "name": "WINDS",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 10,
+          "formula": "$this*1"
+        },
+        {
+          "name": "WINDD",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 12,
+          "formula": "$this*1"
+        },
+        {
+          "name": "ANLG1",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 14,
+          "formula": "$this*1"
+        }
+      ]
+    },
+    {
+      "function_id": 4,
+      "start_register": 1,
+      "params": [
+        {
+          "name": "Amp_All",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Amp_A",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 2,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Amp_B",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 4,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Amp_c",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 6,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Amp_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 8,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Volt_A",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 10,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Volt_B",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 12,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Volt_C",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 14,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Volt_AN",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 16,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Volt_BN",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 18,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Volt_CN",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 20,
+          "formula": "$this*1"
+        }
+      ]
+    },
+    {
+      "function_id": 4,
+      "start_register": 2,
+      "params": [
+        {
+          "name": "Volt_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Watt",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 2,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Watt_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 4,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Hz",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 6,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Hz_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 8,
+          "formula": "$this*1"
+        },
+        {
+          "name": "VAr",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 10,
+          "formula": "$this*1"
+        },
+        {
+          "name": "VAr_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 12,
+          "formula": "$this*1"
+        },
+        {
+          "name": "PF",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 14,
+          "formula": "$this*0.0001"
+        },
+        {
+          "name": "PF_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 16,
+          "formula": "$this*1"
+        },
+        {
+          "name": "WattH",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 18,
+          "formula": "$this*1"
+        }
+      ]
+    },
+    {
+      "function_id": 4,
+      "start_register": 3,
+      "params": [
+        {
+          "name": "WattH_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "DCA",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "DCA_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "DCV",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "DCV_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "DCW",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "DCW_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "TempCab",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "TempSink",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "TempTrans",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "TempOthr",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "Temp_Sf",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        }
+      ]
+    },
+    {
+      "function_id": 4,
+      "start_register": 4,
+      "params": [
+        {
+          "name": "Op_State",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "V_Op_State",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        }
+      ]
+    }
+  ],
+  "alarm": [
+    {
+      "function_id": 3,
+      "start_register": 4097,
+      "params": [
+        {
+          "name": "EVT1",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "Integer",
+          "byte_offset": 58,
+          "formula": "$this*1"
+        }
+      ]
+    }
+  ]
+}

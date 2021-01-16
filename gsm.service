@@ -1,0 +1,7 @@
+[Unit]
+Description=Service for setting up GSM internet connection
+
+[Service]
+Type=simple
+ExecStart=python3 /root/gsm/GsmService.py
+ExecStop=/bin/bash /root/gsm/StopGsmService.sh

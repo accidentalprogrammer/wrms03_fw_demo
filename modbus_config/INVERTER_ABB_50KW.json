@@ -1,0 +1,218 @@
+{
+  "query_params": [
+    {
+      "function_id": 4,
+      "start_register": 1049,
+      "register_count": 1
+    },
+    {
+      "function_id": 4,
+      "start_register": 1069,
+      "register_count": 4
+    },
+    {
+      "function_id": 4,
+      "start_register": 1089,
+      "register_count": 30
+    }
+  ],
+  "data": [
+    {
+      "function_id": 4,
+      "start_register": 1049,
+      "params": [
+        {
+          "name": "Op_State",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*1",
+	        "map_key": "solar_status"	
+        }
+      ]
+    },
+    {
+      "function_id": 4,
+      "start_register": 1069,
+      "params": [
+        {
+          "name": "WattH_T",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this/1000"
+        },
+        {
+          "name": "WattH",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "Integer",
+          "byte_offset": 4,
+          "formula": "$this/1000"
+        }
+      ]
+    },
+    {
+      "function_id": 4,
+      "start_register": 1089,
+      "params": [
+        {
+          "name": "ACOP_ACV_1",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "ACOP_ACV_2",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "ACOP_ACV_3",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 0,
+          "formula": "$this*1"
+        },
+        {
+          "name": "ACOP_ACA_1",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 4,
+          "formula": "$this*1"
+        },
+        {
+          "name": "ACOP_ACA_2",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 4,
+          "formula": "$this*1"
+        },
+        {
+          "name": "ACOP_ACA_3",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 4,
+          "formula": "$this*1"
+        },
+        {
+          "name": "ACOP_ACW_1",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 8,
+          "formula": "$this/3000"
+        },
+        {
+          "name": "ACOP_ACW_2",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 8,
+          "formula": "$this/3000"
+        },
+        {
+          "name": "ACOP_ACW_3",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 8,
+          "formula": "$this/3000"
+        },
+        {
+          "name": "OPPWR",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 8,
+          "formula": "$this/1000"
+        },
+        {
+          "name": "RCP",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 16,
+          "formula": "$this*1"
+        },
+        {
+          "name": "COSFi",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 20,
+          "formula": "$this*1"
+        },
+        {
+          "name": "ACOP_FRQ_1",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 24,
+          "formula": "$this*1"
+        },
+        {
+          "name": "ACOP_FRQ_2",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 24,
+          "formula": "$this*1"
+        },
+        {
+          "name": "ACOP_FRQ_3",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 24,
+          "formula": "$this*1"
+        },
+        {
+          "name": "DCIP_DVW_1",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 28,
+          "formula": "$this*1"
+        },
+        {
+          "name": "DCIP_DCV_1",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 28,
+          "formula": "$this*1"
+        },
+        {
+          "name": "DCIP_DCA_1",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "SwappedFloat16",
+          "byte_offset": 28,
+          "formula": "$this*1"
+        }
+      ]
+    }
+  ],
+  "value_map": {
+   "solar_status": {
+   	"0": "Initializing (configuring power control)",
+	  "1": "Waiting sun or grid",	 
+	  "2": "Connecting to grid (checking grid)",
+	  "3": "Initializing (system startup)",
+	  "4": "Connecting to grid (switching-on DC/DC)",
+	  "5": "Connecting to grid (switching-on DC/AC)"
+	}
+  }
+}

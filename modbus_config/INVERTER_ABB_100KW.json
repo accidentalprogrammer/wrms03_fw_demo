@@ -1,0 +1,536 @@
+{
+  "query_params": [
+    {
+      "function_id": 3,
+      "start_register": 40073,
+      "register_count": 20
+    },
+    {
+      "function_id": 3,
+      "start_register": 40094,
+      "register_count": 14
+    }
+  ],
+  "data": [
+    {
+      "function_id": 3,
+      "start_register": 40073,
+      "params": [
+        {
+          "name": "ACOP_ACA_1",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*0.1"
+        },
+        {
+          "name": "ACOP_ACA_2",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 2,
+          "formula": "$this*0.1"
+        },
+        {
+          "name": "ACOP_ACA_3",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 4,
+          "formula": "$this*0.1"
+        },
+        {
+          "name": "ACOP_ACV_1",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 14,
+          "formula": "$this*0.1"
+        },
+        {
+          "name": "ACOP_ACV_2",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 16,
+          "formula": "$this*0.1"
+        },
+        {
+          "name": "ACOP_ACV_3",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 18,
+          "formula": "$this*0.1"
+        },
+        {
+          "name": "OPPWR",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 22,
+          "formula": "$this*0.01"
+        },
+        {
+          "name": "ACOP_FRQ_1",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 26,
+          "formula": "$this*0.01"
+        },
+        {
+          "name": "ACOP_FRQ_2",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 26,
+          "formula": "$this*0.01"
+        },
+        {
+          "name": "ACOP_FRQ_3",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 26,
+          "formula": "$this*0.01"
+        },
+        {
+          "name": "APP",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 30,
+          "formula": "$this*0.01"
+        },
+        {
+          "name": "RCP",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 34,
+          "sign": "S",
+          "formula": "$this*0.1"
+        },
+        {
+          "name": "COSFi",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 38,
+          "sign": "S",
+          "formula": "$this*0.0001"
+        }
+      ]
+    },
+    {
+      "function_id": 3,
+      "start_register": 40094,
+      "params": [
+        {
+          "name": "WattH",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "Integer",
+          "byte_offset": 0,
+          "formula": "$this*0.01"
+        },
+        {
+          "name": "DCIP_DCA_1",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 6,
+          "formula": "$this*0.1"
+        },
+        {
+          "name": "DCIP_DCV_1",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 10,
+          "formula": "$this*0.01"
+        },
+        {
+          "name": "DCIP_DVW_1",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 14,
+          "formula": "$this*0.01"
+        },
+        {
+          "name": "IPPWR",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 14,
+          "formula": "$this*0.01"
+        },
+        {
+          "name": "Op_State",
+          "register_size": 16,
+          "param_size": 16,
+          "type": "Integer",
+          "byte_offset": 28,
+          "formula": "$this*1"
+        }
+      ]
+    }
+  ],
+  "alarm": [
+    {
+      "function_id": 3,
+      "start_register": 4097,
+      "params": [
+        {
+          "name": "EVT1",
+          "register_size": 16,
+          "param_size": 32,
+          "type": "Integer",
+          "byte_offset": 58,
+          "formula": "$this*1"
+        }
+      ]
+    }
+  ],
+  "default": [
+    {
+      "name": "APP1",
+      "value": 0
+    },
+    {
+      "name": "APP2",
+      "value": 0
+    },
+    {
+      "name": "APP3",
+      "value": 0
+    },
+    {
+      "name": "DCIP_DCA_4",
+      "value": 0
+    },
+    {
+      "name": "DCIP_DCA_5",
+      "value": 0
+    },
+    {
+      "name": "DCIP_DCA_6",
+      "value": 0
+    },
+    {
+      "name": "DCIP_DCV_4",
+      "value": 0
+    },
+    {
+      "name": "DCIP_DCV_5",
+      "value": 0
+    },
+    {
+      "name": "DCIP_DCV_6",
+      "value": 0
+    },
+    {
+      "name": "DCIP_DVW_4",
+      "value": 0
+    },
+    {
+      "name": "DCIP_DVW_5",
+      "value": 0
+    },
+    {
+      "name": "DCIP_DVW_6",
+      "value": 0
+    },
+    {
+      "name": "MACOP_ACA_1",
+      "value": 0
+    },
+    {
+      "name": "MACOP_ACA_2",
+      "value": 0
+    },
+    {
+      "name": "MACOP_ACA_3",
+      "value": 0
+    },
+    {
+      "name": "MACOP_ACV_1",
+      "value": 0
+    },
+    {
+      "name": "MACOP_ACV_2",
+      "value": 0
+    },
+    {
+      "name": "MACOP_ACV_3",
+      "value": 0
+    },
+    {
+      "name": "MACOP_ACW_1",
+      "value": 0
+    },
+    {
+      "name": "MACOP_ACW_2",
+      "value": 0
+    },
+    {
+      "name": "MACOP_ACW_3",
+      "value": 0
+    },
+    {
+      "name": "ACOP_ACW_1",
+      "value": 0
+    },
+    {
+      "name": "ACOP_ACW_2",
+      "value": 0
+    },
+    {
+      "name": "ACOP_ACW_3",
+      "value": 0
+    },
+    {
+      "name": "MACOP_FRQ_1",
+      "value": 0
+    },
+    {
+      "name": "MACOP_FRQ_2",
+      "value": 0
+    },
+    {
+      "name": "MACOP_FRQ_3",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCA_1",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCA_2",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCA_3",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCA_4",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCA_5",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCA_6",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCV_1",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCV_2",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCV_3",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCV_4",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCV_5",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DCV_6",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DVW_1",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DVW_2",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DVW_3",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DVW_4",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DVW_5",
+      "value": 0
+    },
+    {
+      "name": "MDCIP_DVW_6",
+      "value": 0
+    },
+    {
+      "name": "PF",
+      "value": 0
+    },
+    {
+      "name": "RecTime",
+      "value": 0
+    },
+    {
+      "name": "RunT_T",
+      "value": 0
+    },
+    {
+      "name": "STR1",
+      "value": 0
+    },
+    {
+      "name": "STR10",
+      "value": 0
+    },
+    {
+      "name": "STR11",
+      "value": 0
+    },
+    {
+      "name": "STR12",
+      "value": 0
+    },
+    {
+      "name": "STR13",
+      "value": 0
+    },
+    {
+      "name": "STR14",
+      "value": 0
+    },
+    {
+      "name": "STR15",
+      "value": 0
+    },
+    {
+      "name": "STR16",
+      "value": 0
+    },
+    {
+      "name": "STR17",
+      "value": 0
+    },
+    {
+      "name": "STR18",
+      "value": 0
+    },
+    {
+      "name": "STR19",
+      "value": 0
+    },
+    {
+      "name": "STR2",
+      "value": 0
+    },
+    {
+      "name": "STR20",
+      "value": 0
+    },
+    {
+      "name": "STR21",
+      "value": 0
+    },
+    {
+      "name": "STR22",
+      "value": 0
+    },
+    {
+      "name": "STR23",
+      "value": 0
+    },
+    {
+      "name": "STR24",
+      "value": 0
+    },
+    {
+      "name": "STR3",
+      "value": 0
+    },
+    {
+      "name": "STR4",
+      "value": 0
+    },
+    {
+      "name": "STR5",
+      "value": 0
+    },
+    {
+      "name": "STR6",
+      "value": 0
+    },
+    {
+      "name": "STR7",
+      "value": 0
+    },
+    {
+      "name": "STR8",
+      "value": 0
+    },
+    {
+      "name": "STR9",
+      "value": 0
+    },
+    {
+      "name": "EVT2",
+      "value": 0
+    },
+    {
+      "name": "EVT2",
+      "value": 0
+    },
+    {
+      "name": "EVT3",
+      "value": 0
+    },
+    {
+      "name": "EVT4",
+      "value": 0
+    },
+    {
+      "name": "EVT5",
+      "value": 0
+    },
+    {
+      "name": "EVT6",
+      "value": 0
+    },
+    {
+      "name": "EVT7",
+      "value": 0
+    },
+    {
+      "name": "EVT8",
+      "value": 0
+    },
+    {
+      "name": "EVT9",
+      "value": 0
+    },
+    {
+      "name": "EVT10",
+      "value": 0
+    },
+    {
+      "name": "IPPWR",
+      "value": 0
+    },
+    {
+      "name": "Op_State",
+      "value": "Unknown"
+    }
+  ]
+}

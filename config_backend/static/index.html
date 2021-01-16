@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" >
+        <style>
+         body {
+             background-color: #36393e;
+             color: #bfbfbf;
+         }
+         .input-box {
+             background-color: #2f3136;
+             border-radius: 5px;
+             border: none;
+             color: #e9f2e9;
+             box-shadow: none;
+             width: 100%;
+         }
+         .btn-dark {
+             background: #2f3136;
+             width: 25%;
+             border-radius: 5px;
+             color: #F04747;
+         }
+         .margin-md {
+             margin-bottom: 10px;
+             margin-top: 10px;
+         }
+         .navbar {
+             background-color: #2f3136;
+         }
+        </style>
+        <script type="text/javascript">
+         function toggleCommParams(el) {
+             var commType = el.id;
+             if( commType === 'comm_type_http') {
+                 var http_div = document.getElementById('http_param_div');
+                 var mqtt_div = document.getElementById('mqtt_param_div');
+                 http_div.style.display = "block";
+                 mqtt_div.style.display = "none";
+             } else if ( commType === 'comm_type_mqtt') {
+                 var http_div = document.getElementById('http_param_div');
+                 var mqtt_div = document.getElementById('mqtt_param_div');
+                 http_div.style.display = "none";
+                 mqtt_div.style.display = "block";
+             }
+         }
+
+         function getRequestJson() {
+             var reqJson = {};
+             var http_url = document.getElementById('gateway_url').value;
+             var mqtt_ip = document.getElementById('mqtt_host').value;
+             var mqtt_port = document.getElementById('mqtt_port').value;
+             var mqtt_topic = document.getElementById('mqtt_topic').value;
+             var interval = document.getElementById('periodic_interval').value;
+             var apn_name = document.getElementById('apn_name').value;
+             var apn_user = document.getElementById('apn_user').value;
+             var apn_pwd = document.getElementById('apn_pwd').value;
+
+             if(http_url)
+                 reqJson['http_url'] = http_url;
+             if(mqtt_ip)
+                 reqJson['mqtt_host'] = mqtt_ip;
+             if(mqtt_port)
+                 reqJson['mqtt_port'] = mqtt_port;
+             if(mqtt_topic)
+                 reqJson['mqtt_topic'] = mqtt_topic;
+             if(interval)
+                 reqJson['periodic_interval'] = interval;
+             if(apn_name)
+                 reqJson['apn'] = apn_name;
+             if(apn_user)
+                 reqJson['apn_user'] = apn_user;
+             if(apn_pwd)
+                 reqJson['apn_password'] = apn_pwd;
+
+             return reqJson;
+         }
+
+         function updateConfig() {
+             configJson = getRequestJson();
+             console.log(configJson);
+             var http = new XMLHttpRequest();
+             var url = '/updateMainConfig';
+             http.open('POST', url, true);
+
+             //Send the proper header information along with the request
+             http.setRequestHeader('Content-type', 'application/json');
+             http.setRequestHeader('Access-Control-Allow-Origin', '*');
+
+             http.onreadystatechange = function() {//Call a function when the state changes.
+                 if(http.readyState == 4 && http.status == 200) {
+                     alert(http.responseText);
+                 }
+             }
+             console.log(configJson);
+             http.send(JSON.stringify(configJson));
+
+
+         }
+
+         function rebootDevice() {
+             var http = new XMLHttpRequest();
+             var url = 'http://localhost:8000/'
+             http.open('GET', url, true );
+
+             http.onreadystatechange = function() {
+                 if(http.readyState == 4 && http.status == 200 ) {
+                     alert('Device will be rebooted');
+                 }
+             }
+
+             http.send();
+         }
+
+         function startLogger() {
+             var http = new XMLHttpRequest();
+             var url = 'http://localhost:8000/'
+             http.open('GET', url, true );
+
+             http.onreadystatechange = function() {
+                 if(http.readyState == 4 && http.status == 200 ) {
+                     alert('Application Started');
+                 }
+             }
+
+             http.send();
+         }
+
+         function stopLogger() {
+             var http = new XMLHttpRequest();
+             var url = 'http://localhost:8000/'
+             http.open('GET', url, true );
+
+             http.onreadystatechange = function() {
+                 if(http.readyState == 4 && http.status == 200 ) {
+                     alert('Application Stopped');
+                 }
+             }
+
+             http.send();
+         }
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+                <a class="navbar-brand" href="#">Logo</a>
+            </nav>
+            <div class="row margin-md">
+                <div class="col-md-4 text-center form-group">
+                    <button type="button" class="btn btn-dark" onclick="rebootDevice()">Reboot</button>
+                </div>
+                <div class="col-md-4 text-center form-group">
+                    <button type="button" class="btn btn-dark" onclick="startLogger()">Start</button>
+                </div>
+                <div class="col-md-4 text-center form-group">
+                    <button type="button" class="btn btn-dark" onclick="stopLogger()">Stop</button>
+                </div>
+            </div>
+            <div class="row margin-md">
+                <div class="col-md-4">
+                    <label>Select the Communication Type</label>
+                </div>
+                <div class="col-md-4">
+                    HTTP <input name="comm_type" type="radio" value="http" id="comm_type_http" onclick="toggleCommParams(this)" checked>
+                </div>
+                <div class="col-md-4">
+                    MQTT <input name="comm_type" type="radio" value="mqtt" id="comm_type_mqtt" onclick="toggleCommParams(this)">
+                </div>
+            </div>
+            <div id="http_param_div">
+                <div class="row margin-md">
+                    <div class="col-md-2">
+                        <label>Gateway URL</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input class="input-box" name="gateway_url" type="text" id="gateway_url">
+                    </div>
+                </div>
+            </div>
+            <div id="mqtt_param_div" style="display:none;">
+                <div class="row margin-md">
+                    <div class="col-md-2">
+                        <label>MQTT Host IP</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input class="input-box" name="mqtt_host" type="text" id="mqtt_host">
+                    </div>
+                    <div class="col-md-2">
+                        <label>MQTT Port</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input class="input-box" name="mqtt_port" type="text" id="mqtt_port">
+                    </div>
+                    <div class="col-md-2">
+                        <label>MQTT Topic</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input class="input-box" name="mqtt_topic" type="text" id="mqtt_topic">
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-md">
+                <div class="col-md-2">
+                    <label>Periodic Interval</label>
+                </div>
+                <div class="col-md-10">
+                    <input class="input-box" name="periodic_interval" type="text" id="periodic_interval">
+                </div>
+            </div>
+            <div class="row margin-md">
+                <div class="col-md-2">
+                    <label>Access point name</label>
+                </div>
+                <div class="col-md-10">
+                    <input class="input-box" name="apn_name" type="text" id="apn_name">
+                </div>
+            </div>
+            <div class="row margin-md">
+                <div class="col-md-2">
+                    <label>APN User</label>
+                </div>
+                <div class="col-md-10">
+                    <input class="input-box" name="apn_user" type="text" id="apn_user">
+                </div>
+            </div>
+            <div class="row margin-md">
+                <div class="col-md-2">
+                    <label>APN Password</label>
+                </div>
+                <div class="col-md-10">
+                    <input class="input-box" name="apn_pwd" type="text" id="apn_pwd">
+                </div>
+            </div>
+            <div class="row margin-md">
+                <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-dark" onclick="updateConfig()">Submit</button>
+                </div>
+            </div>
+        </div>
+        <script src="js/bootstrap.min.js" ></script>
+    </body>
+</html>

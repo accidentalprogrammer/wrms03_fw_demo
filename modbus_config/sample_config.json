@@ -1,0 +1,20 @@
+{
+  "data": [
+          {
+            "FunctionId": 4,
+            "StartRegister": 100,
+            "params": [
+                        {
+                          "Name": "IntValue",
+                          "RegisterSize": 16,
+                          "ParamSize": 32,
+                          "Type": "Float",
+                          "ByteOffset": 0,
+                          "BitOffset": 0,
+                          "Sign": "U",
+                          "Formula": "($this*0.01)"
+                          }
+                      ]
+          }
+  ]
+}

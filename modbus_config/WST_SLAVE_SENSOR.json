@@ -1,0 +1,74 @@
+{
+        "data": [
+                {
+                        "function_id": 4,
+                        "start_register": 0,
+                        "params": [
+                                {
+                                        "name":"WSNSR",
+                                        "register_size":16,
+                                        "param_size":16,
+                                        "type":"Integer",
+                                        "byte_offset":0,
+                                        "formula":"$this/16"
+                                },
+                                {
+                                        "name":"TEMP",
+                                        "register_size":16,
+                                        "param_size":16,
+                                        "type":"Integer",
+                                        "byte_offset":2,
+                                        "formula":"(($this*175)/65536)-45.0"
+                                },
+                                {
+                                        "name":"HUMI",
+                                        "register_size":16,
+                                        "param_size":16,
+                                        "type":"Integer",
+                                        "byte_offset":2,
+                                        "formula":"($this*0.15258789)/100"
+                                },
+                                {
+                                        "name":"RELAY",
+                                        "register_size":16,
+                                        "param_size":16,
+                                        "type":"Integer",
+                                        "byte_offset":2,
+                                        "formula":"$this*1"
+                                },
+                                {
+                                        "name":"RAIN",
+                                        "register_size":16,
+                                        "param_size":16,
+                                        "type":"Integer",
+                                        "byte_offset":2,
+                                        "formula":"$this*1"
+                                },
+                                {
+                                        "name":"WINDS",
+                                        "register_size":16,
+                                        "param_size":16,
+                                        "type":"Integer",
+                                        "byte_offset":2,
+                                        "formula":"$this*1"
+                                },
+                                {
+                                        "name":"WINDD",
+                                        "register_size":16,
+                                        "param_size":16,
+                                        "type":"Integer",
+                                        "byte_offset":2,
+                                        "formula":"$this*1"
+                                },
+                                {
+                                        "name":"ANLG1",
+                                        "register_size":16,
+                                        "param_size":16,
+                                        "type":"Integer",
+                                        "byte_offset":2,
+                                        "formula":"$this*1"
+                                }
+                        ]
+                }
+        ]
+}
